@@ -31,7 +31,7 @@
             overflow-x: hidden;
         }
 
-        /* Header */
+       
         header {
             position: fixed;
             width: 100%;
@@ -58,7 +58,7 @@
     cursor: pointer;
     transition: transform 0.3s ease;
     object-fit: cover; 
-    border-radius: 50%; 
+     
 }
 
 
@@ -105,7 +105,7 @@
             width: 100%;
         }
 
-        /* Hero Section */
+        
         .hero {
             min-height: 100vh;
             display: flex;
@@ -263,7 +263,7 @@
             animation: float 3s ease-in-out infinite;
         }
 
-        /* Projects Section */
+        
         .projects {
             padding: 5rem 2rem;
             background-color: rgba(26, 26, 26, 0.5);
@@ -307,10 +307,20 @@
             background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
             position: relative;
             overflow: hidden;
+            display: flex;
+            justify-content: center; 
+            align-items: center;    
+        }
+        .project-image-inside {
+            align-self: center;
+            height: 100%;
+            
+            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+            position: relative;
+            overflow: hidden;
         }
 
         .project-image::after {
-            content: 'Em breve';
             position: absolute;
             top: 50%;
             left: 50%;
@@ -491,7 +501,7 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
+    
     <header>
         <nav>
             <img src="./logo.png" alt="Logo" class="logo-image">
@@ -504,7 +514,7 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
+    
     <section id="home" class="hero">
         <div class="hero-content">
             <div class="hero-text">
@@ -517,13 +527,13 @@
             </div>
             <div class="hero-image">
                 <div class="profile-container">
-                    <div class="profile-img"></div>
+                    <div class="profile-img"><img  src="./euuuu.png" alt="" srcset=""></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
+    
     <section id="about" class="about">
         <div class="about-content">
             <div class="about-text">
@@ -539,45 +549,76 @@
                     <span class="tech-badge">Python</span>
                     <span class="tech-badge">Node.js</span>
                     <span class="tech-badge">Git</span>
+                    <span class="tech-badge">BootStrap</span>
+                    <span class="tech-badge">Tailwind</span>
                 </div>
             </div>
             <div class="python-logo">🐍</div>
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- Projetos -->
     <section id="projects" class="projects">
         <h2>MEUS PROJETOS</h2>
         <div class="projects-grid">
             <div class="project-card">
-                <div class="project-image"></div>
+                <div class="project-image"><img class="project-image-inside" src="./pi1/amgbairro.png" alt=""></div>
                 <div class="project-info">
-                    <h3>E-commerce Platform</h3>
-                    <p>Plataforma completa de e-commerce com carrinho, pagamento e dashboard administrativo.</p>
+                    <h3>Amigos do Bairro</h3>
+                    <p>Projeto realizado para a ONG Amigos do Bairro Zona Leste. Coletivo esse que tem sua prioridade trazer educação e lazer para as crianças da Zona Leste de São Paulo. O objetivo desse projeto foi trazer maior visibilidade para esse coletivo, aumentando assim sua abrangência e poder de atingir mais pessoas.</p>
                     <div class="project-tech">
-                        <span>React</span>
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                        <span>BootStrap</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image"><img class="project-image-inside" src="./pi2/StreetWise.jpeg" alt=""></div>
+                <div class="project-info">
+                    <h3>StreetWise</h3>
+                    <p>Plataforma de gerenciamento de um studio de tatuagem. Projeto feito em parceria com o studio StreetWise. Com intuito de otimizar o processo de agendamento de tatuangens.<p>
+                    <div class="project-tech">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>BootStrap</span>
                         <span>Node.js</span>
-                        <span>MongoDB</span>
                     </div>
                 </div>
             </div>
             <div class="project-card">
-                <div class="project-image"></div>
+                <div class="project-image"><img class="project-image-inside" src="./pi3/inkdash.jpeg" alt=""></div>
                 <div class="project-info">
-                    <h3>App Mobile Social</h3>
-                    <p>Aplicativo de rede social com chat em tempo real, stories e compartilhamento de mídia.</p>
+                    <h3>Ink Dash</h3>
+                    <p>Sistema de gerenciamento de estudio de tatuagem com funcionalidades essenciais para facilitar consulta de estoques, consulta de clientes, emissão de ficha de amnese, dentre outros.</p>
                     <div class="project-tech">
-                        <span>React Native</span>
-                        <span>Firebase</span>
-                        <span>Redux</span>
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span></span>
                     </div>
                 </div>
             </div>
             <div class="project-card">
-                <div class="project-image"></div>
+                <div class="project-image"><img class="project-image-inside" src="./pi4/easypsi.jpeg" alt=""></div>
                 <div class="project-info">
-                    <h3>Dashboard Analytics</h3>
-                    <p>Sistema de análise de dados com visualizações interativas e relatórios automatizados.</p>
+                    <h3>Easypsi</h3>
+                    <p>Plataforma de gestão para psicólogos com gerenciamento de consultas, emissão de recibos, controle de pagamentos de pacientes, dentre outras funcionalidades.</p>
+                    <div class="project-tech">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                        <span>Python</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image"><img class="project-image-inside" src="./pi5/lastrear.jpeg" alt=""></div>
+                <div class="project-info">
+                    <h3>Lastrear imoveis</h3>
+                    <p>Projeto desenvolvido em conjunto com a empresa Lastrear imóveis.
+                        Com o objetivo de otimizar o processo de analise de crédito e no fluxo de trabalho dos corretores e administradores.
+                    </p>
                     <div class="project-tech">
                         <span>Python</span>
                         <span>Django</span>
@@ -588,36 +629,30 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+   
     <section id="contact" class="contact">
         <h2>Vamos Conversar?</h2>
         <p>Estou sempre aberto a novas oportunidades e projetos desafiadores. Entre em contato e vamos criar algo incrível juntos!</p>
         <div class="contact-buttons">
-            <a href="mailto:kauan@example.com" class="btn">
+            <a href="mailto:kauanacalmeida17@gmail.com" class="btn">
                 <span>📧</span> Email
             </a>
             <a href="https://linkedin.com/in/kauan" class="btn btn-outline">
                 <span>💼</span> LinkedIn
             </a>
-            <a href="https://github.com/kauan" class="btn btn-outline">
+            <a href="https://github.com/kauandeveser/" class="btn btn-outline">
                 <span>💻</span> GitHub
             </a>
         </div>
     </section>
 
-    <!-- Footer -->
+   
     <footer>
-        <div class="social-links">
-            <a href="#">📷</a>
-            <a href="#">🐦</a>
-            <a href="#">💼</a>
-            <a href="#">💻</a>
-        </div>
         <p>&copy; 2024 Kauan. Todos os direitos reservados.</p>
     </footer>
 
     <script>
-        // Header scroll effect
+       
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
             if (window.scrollY > 100) {
@@ -629,7 +664,7 @@
             }
         });
 
-        // Smooth scroll for navigation links
+       
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -643,7 +678,6 @@
             });
         });
 
-        // Intersection Observer for animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -658,7 +692,6 @@
             });
         }, observerOptions);
 
-        // Observe all sections
         document.querySelectorAll('section').forEach(section => {
             section.style.opacity = '0';
             section.style.transform = 'translateY(30px)';
@@ -666,7 +699,7 @@
             observer.observe(section);
         });
 
-        // Typing effect for hero title
+        
         const heroTitle = document.querySelector('.hero-text h1');
         const text = heroTitle.textContent;
         heroTitle.textContent = '';
