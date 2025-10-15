@@ -115,14 +115,6 @@
             align-items: center;
         }
 
-        .hero-text h2 {
-            color: var(--title-color);
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            font-family: var(--font-body);
-            font-weight: 400;
-        }
-
         .hero-text h1 {
             font-family: var(--font-heading);
             font-size: 4rem;
@@ -130,15 +122,9 @@
             margin-bottom: 1rem;
             letter-spacing: -2px;
             text-shadow: 0 0 30px rgba(106, 13, 173, 0.5);
-            min-height: 70px; /* Evita que o layout pule durante a digitação */
+            min-height: 70px;
         }
 
-        .hero-text .subtitle {
-            color: var(--title-color);
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-        
         .profile-container {
             position: relative;
             width: 400px;
@@ -208,10 +194,6 @@
             align-items: center;
         }
 
-        .about-text p {
-            margin-bottom: 1.5rem;
-        }
-
         .tech-stack {
             display: flex;
             flex-wrap: wrap;
@@ -276,18 +258,53 @@
             width: 100%;
             height: 200px;
             overflow: hidden;
+            position: relative;
         }
         
-        .project-image img {
+        .carousel-wrapper {
+            display: flex;
+            height: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-wrapper img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.4s ease;
+            flex-shrink: 0;
+        }
+        
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(18, 18, 18, 0.6);
+            color: white;
+            border: none;
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease, background-color 0.3s ease;
+        }
+        
+        .project-image:hover .carousel-btn {
+            opacity: 1;
         }
 
-        .project-card:hover .project-image img {
-            transform: scale(1.05);
+        .carousel-btn:hover {
+            background-color: rgba(106, 13, 173, 0.8);
         }
+
+        .prev-btn { left: 10px; }
+        .next-btn { right: 10px; }
         
         .project-info {
             padding: 1.5rem;
@@ -296,10 +313,13 @@
             flex-direction: column;
         }
 
-        .project-info h3 { color: var(--title-color); margin-bottom: 0.5rem; font-size: 1.3rem; }
-        .project-info p { color: var(--text-color); margin-bottom: 1rem; flex-grow: 1; }
-        .project-tech { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: auto; }
-        .project-tech span { background-color: rgba(106, 13, 173, 0.2); padding: 0.25rem 0.75rem; border-radius: 15px; font-size: 0.85rem; color: var(--accent-color); }
+        .project-tech span { 
+            background-color: rgba(106, 13, 173, 0.2); 
+            padding: 0.25rem 0.75rem; 
+            border-radius: 15px; 
+            font-size: 0.85rem; 
+            color: var(--accent-color); 
+        }
         
         .contact { text-align: center; }
         .contact .section-wrapper { max-width: 800px; }
@@ -326,7 +346,7 @@
             .hero-text { order: 2; }
             .hero-image { order: 1; margin-bottom: 2rem; }
             .profile-container { width: 300px; height: 300px; }
-            .nav-links { display: none; } /* Exemplo de simplificação para mobile */
+            .nav-links { display: none; }
         }
     </style>
 </head>
@@ -350,7 +370,7 @@
                 <div class="hero-text">
                     <h2>OLÁ, EU SOU</h2>
                     <h1>KAUAN</h1>
-                    <p class="subtitle">E ESSE É MEU PORTFOLIO</p>
+                    <p class="subtitle">E ESSE É MEU PORTFÓLIO</p>
                     <div style="margin-top: 2rem;">
                         <a href="#projects" class="btn">Ver Projetos</a>
                     </div>
@@ -394,40 +414,101 @@
             <div class="section-wrapper">
                 <h2 class="section-title">MEUS PROJETOS</h2>
                 <div class="projects-grid">
+                    
                     <div class="project-card">
-                        <div class="project-image"><img src="./pi1/amgbairro.png" alt="Projeto Amigos do Bairro"></div>
+                        <a style="text-decoration: none;" href="https://github.com/kauandeveser/ProjetoAmigosdoBairro">
+                            <div class="project-image">
+                                <div class="carousel-wrapper">
+                                    <img src="./pi1/amgbairro.png" alt="Projeto Amigos do Bairro - Imagem 1">
+                                    <img src="./pi1/amgbairro2.JPEG" alt="Projeto Amigos do Bairro - Imagem 2">
+                                    <img src="./pi1/amgbairro3.JPEG" alt="Projeto Amigos do Bairro - Imagem 3">
+                                    <img src="./pi1/amgbairro4.JPEG" alt="Projeto Amigos do Bairro - Imagem 3">
+                                </div>
+                                <button class="carousel-btn prev-btn">&lt;</button>
+                                <button class="carousel-btn next-btn">&gt;</button>
+                            </div>
+                        </a>
                         <div class="project-info">
                             <h3>Amigos do Bairro</h3>
                             <p>Projeto realizado para a ONG Amigos do Bairro Zona Leste, para trazer maior visibilidade para o coletivo, aumentando sua abrangência.</p>
                             <div class="project-tech"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>BootStrap</span></div>
                         </div>
                     </div>
+
                     <div class="project-card">
-                        <div class="project-image"><img src="./pi2/StreetWise.jpeg" alt="Projeto StreetWise"></div>
+                        <a style="text-decoration: none;" href="https://github.com/TechWeavers/tattoo-service-nodejs">
+                            <div class="project-image">
+                                <div class="carousel-wrapper">
+                                    <img src="./pi2/StreetWise1.jpeg" alt="Projeto StreetWise - Imagem 1">
+                                    <img src="./pi2/StreetWise2.jpeg" alt="Projeto StreetWise - Imagem 2">
+                                    <img src="./pi2/StreetWise3.jpeg" alt="Projeto StreetWise - Imagem 3">
+                                </div>
+                                <button class="carousel-btn prev-btn">&lt;</button>
+                                <button class="carousel-btn next-btn">&gt;</button>
+                            </div>
+                        </a>
                         <div class="project-info">
                             <h3>StreetWise</h3>
                             <p>Plataforma de gerenciamento de um studio de tatuagem, feita para otimizar o processo de agendamento.</p>
                             <div class="project-tech"><span>HTML</span><span>CSS</span><span>BootStrap</span><span>Node.js</span></div>
                         </div>
                     </div>
+
                     <div class="project-card">
-                        <div class="project-image"><img src="./pi3/inkdash.jpeg" alt="Projeto Ink Dash"></div>
+                        <a style="text-decoration: none;" href="https://github.com/TechWeavers/PI-StreetWise-ERP-3Semestre">
+                            <div class="project-image">
+                                <div class="carousel-wrapper">
+                                    <img src="./pi3/inkdash1.jpeg" alt="Projeto Ink Dash - Imagem 1">
+                                    <img src="./pi3/inkdash2.jpeg" alt="Projeto Ink Dash - Imagem 2">
+                                    <img src="./pi3/inkdash3.jpeg" alt="Projeto Ink Dash - Imagem 2">
+                                    <img src="./pi3/inkdash4.jpeg" alt="Projeto Ink Dash - Imagem 2">
+                                    <img src="./pi3/inkdash5.jpeg" alt="Projeto Ink Dash - Imagem 2">
+                                </div>
+                                <button class="carousel-btn prev-btn">&lt;</button>
+                                <button class="carousel-btn next-btn">&gt;</button>
+                            </div>
+                        </a>
                         <div class="project-info">
                             <h3>Ink Dash</h3>
                             <p>Sistema de gerenciamento para estúdios de tatuagem com funcionalidades para facilitar consulta de estoques, clientes e emissão de fichas.</p>
                             <div class="project-tech"><span>HTML</span><span>CSS</span><span>Python</span></div>
                         </div>
                     </div>
+
                     <div class="project-card">
-                        <div class="project-image"><img src="./pi4/easypsi.jpeg" alt="Projeto Easypsi"></div>
+                        <a style="text-decoration: none;" href="https://github.com/Melancia-Salgada/psico-backend">
+                            <div class="project-image">
+                                <div class="carousel-wrapper">
+                                    <img src="./pi4/easypsi1.jpeg" alt="Projeto Easypsi - Imagem 1">
+                                    <img src="./pi4/easypsi2.jpeg" alt="Projeto Easypsi - Imagem 2">
+                                    <img src="./pi4/easypsi3.jpeg" alt="Projeto Easypsi - Imagem 3">
+                                    <img src="./pi4/easypsi4.jpeg" alt="Projeto Easypsi - Imagem 3">
+                                </div>
+                                <button class="carousel-btn prev-btn">&lt;</button>
+                                <button class="carousel-btn next-btn">&gt;</button>
+                            </div>
+                        </a>
                         <div class="project-info">
                             <h3>Easypsi</h3>
                             <p>Plataforma de gestão para psicólogos com gerenciamento de consultas, emissão de recibos e controle de pagamentos.</p>
                             <div class="project-tech"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Python</span></div>
                         </div>
                     </div>
-                     <div class="project-card">
-                        <div class="project-image"><img src="./pi5/lastrear.jpeg" alt="Projeto Lastrear Imóveis"></div>
+                    
+                    <div class="project-card">
+                         <a style="text-decoration: none;" href="https://github.com/Melancia-Salgada/lastrear-imovel">
+                            <div class="project-image">
+                                <div class="carousel-wrapper">
+                                    <img src="./pi5/lastrear.jpeg" alt="Projeto Lastrear Imóveis - Imagem 1">
+                                    <img src="./pi5/lastrear2.jpeg" alt="Projeto Lastrear Imóveis - Imagem 2">
+                                    <img src="./pi5/lastrear3.jpeg" alt="Projeto Lastrear Imóveis - Imagem 2">
+                                    <img src="./pi5/lastrear4.jpeg" alt="Projeto Lastrear Imóveis - Imagem 2">
+                                    <img src="./pi5/lastrear5.jpeg" alt="Projeto Lastrear Imóveis - Imagem 2">
+                                </div>
+                                <button class="carousel-btn prev-btn">&lt;</button>
+                                <button class="carousel-btn next-btn">&gt;</button>
+                            </div>
+                        </a>
                         <div class="project-info">
                             <h3>Lastrear Imóveis</h3>
                             <p>Desenvolvido para otimizar o processo de análise de crédito e o fluxo de trabalho dos corretores e administradores da empresa.</p>
@@ -493,6 +574,38 @@
                 setTimeout(type, 500);
             }
 
+            function initCarousels() {
+                const projectCards = document.querySelectorAll('.project-card');
+
+                projectCards.forEach(card => {
+                    const wrapper = card.querySelector('.carousel-wrapper');
+                    const images = card.querySelectorAll('.carousel-wrapper img');
+                    const prevBtn = card.querySelector('.prev-btn');
+                    const nextBtn = card.querySelector('.next-btn');
+                    
+                    if (!wrapper || !prevBtn || !nextBtn || images.length === 0) return;
+
+                    let currentIndex = 0;
+                    const totalImages = images.length;
+
+                    function updateCarousel() {
+                        wrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+                    }
+
+                    nextBtn.addEventListener('click', (event) => {
+                        event.preventDefault();
+                        currentIndex = (currentIndex + 1) % totalImages;
+                        updateCarousel();
+                    });
+
+                    prevBtn.addEventListener('click', (event) => {
+                        event.preventDefault();
+                        currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+                        updateCarousel();
+                    });
+                });
+            }
+
             window.addEventListener('scroll', () => {
                 handleHeaderScroll();
                 revealSectionsOnScroll();
@@ -500,7 +613,9 @@
             
             revealSectionsOnScroll();
             initTypewriter();
+            initCarousels();
         });
     </script>
 </body>
 </html>
+
